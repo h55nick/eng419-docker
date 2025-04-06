@@ -1,4 +1,4 @@
-FROM jupyter/datascience-notebook
+FROM python:3.12-bookworm
 
 # update system and install pip requirements
 RUN apt update
