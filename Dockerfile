@@ -1,4 +1,4 @@
-FROM python:3.12-bookworm
+FROM jupyter/datascience-notebook
 
 # update system and install pip requirements
 RUN apt update
@@ -11,6 +11,8 @@ EXPOSE 8888
 
 # Environment variable to prevent Jupyter from opening a browser
 ENV JUPYTER_ENABLE_LAB=1
+ENV JUPYTER_TOKEN=''
+
 
 # start the notebook
-CMD ["jupyter-notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--notebook-dir=/mnt/notebooks"]
+CMD ["jupyter-notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--notebook-dir=/mnt/notebooks", "--NotebookApp.token=''", "--NotebookApp.password=''"]
