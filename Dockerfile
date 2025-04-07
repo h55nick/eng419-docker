@@ -2,6 +2,8 @@ FROM python:3.12-bookworm
 
 # update system and install pip requirements
 RUN apt update
+# install libgl1, which is needed for opencv for week 3
+RUN apt install -y libgl1
 RUN pip install --upgrade pip
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
